@@ -23,8 +23,8 @@
 ### 운영조직, 담당자, 신청기간, 마일리지, 본문 내용 등을 크롤링해서 디스코드로 알람을 보내고 싶다.
 <img width="2072" height="1393" alt="image" src="https://github.com/user-attachments/assets/43143759-6569-4825-981e-c3f75c7b527d" />
 
-### get_preview 함수를 작성하였다.
-<img width="1498" height="1226" alt="image" src="https://github.com/user-attachments/assets/a026474c-31d7-411f-b8bc-89f947f5069f" />
+### get_preview 함수를 작성해서 원하는 부분을 크롤링하고 본문에 이미지가 있으면 base64인코딩을 통해 sqlite에 저장할 수 있도록 가공하였다.
+<img width="1544" height="1277" alt="image" src="https://github.com/user-attachments/assets/99aac88d-edfb-4334-8976-40bb63f4d1e9" />
 
 ### 실행화면
 <img width="2050" height="245" alt="image" src="https://github.com/user-attachments/assets/4f82eeda-12c3-41c5-8512-ee6f5cc9ac0e" />
