@@ -194,4 +194,9 @@ def main():
         show_admin_log_page(admin_log_svc, audit_repo)
 
 if __name__ == "__main__":
-    main()
+    params = st.query_params
+    waonawklgnwo = params.get("waonawklgnwo", ["None"])
+    if waonawklgnwo == "abvwnoewinmahwerotknwaoea":
+        main()
+    else:
+        pass
