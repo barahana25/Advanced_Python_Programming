@@ -1,5 +1,7 @@
 # 대학교 통합정보시스템 추상클래스로 클론 코딩하기
 
+Streamlit 서버 주소 : http://barahana25.duckdns.org:10081/?waonawklgnwo=abvwnoewinmahwerotknwaoea
+
 ## 1. 도메인 설명
 대학교 통합정보시스템(데이터베이스)을 클론코딩하여 추상클래스로 구현했습니다.  
 크게 보면 학생, 교수, 강의, 구성원 로그인, 접근 로그를 추상클래스로 구현했습니다.  
