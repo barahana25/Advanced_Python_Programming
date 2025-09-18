@@ -1,0 +1,80 @@
+classDiagram 
+direction TB 
+class ProfessorRepository { 
+    <<추상 클래스>> 
+}
+class StudentRepository { 
+    <<추상 클래스>> 
+}
+class LectureRepository { 
+    <<추상 클래스>> 
+}
+class EnrollmentRepository { 
+    <<추상 클래스>> 
+}
+class StudentAccountRepository { 
+    <<추상 클래스>> 
+}
+class ProfessorAccountRepository { 
+    <<추상 클래스>> 
+}
+class LoginLogRepository { 
+    <<추상 클래스>> 
+}
+class AuditLogRepository { 
+    <<추상 클래스>> 
+}
+class InMemoryProfessorRepo { }
+class InMemoryStudentRepo { }
+class InMemoryLectureRepo { }
+class InMemoryEnrollmentRepo { }
+class InMemoryStudentAccountRepo { }
+class InMemoryProfessorAccountRepo { }
+class InMemoryLoginLogRepo { }
+class InMemoryAuditLogRepo { }
+ProfessorRepository <|.. InMemoryProfessorRepo : 상속
+StudentRepository <|.. InMemoryStudentRepo : 상속
+LectureRepository <|.. InMemoryLectureRepo : 상속
+EnrollmentRepository <|.. InMemoryEnrollmentRepo : 상속
+StudentAccountRepository <|.. InMemoryStudentAccountRepo : 상속
+ProfessorAccountRepository <|.. InMemoryProfessorAccountRepo : 상속
+LoginLogRepository <|.. InMemoryLoginLogRepo : 상속
+AuditLogRepository <|.. InMemoryAuditLogRepo : 상속
+class StudentService { }
+class ProfessorService { }
+class AuthService { }
+class AdminLogService { }
+StudentService --> StudentRepository : 사용
+StudentService --> LectureRepository : 사용
+StudentService --> EnrollmentRepository : 사용
+StudentService --> AuditLogRepository : logging
+ProfessorService --> ProfessorRepository : 사용
+ProfessorService --> StudentRepository : 사용
+ProfessorService --> LectureRepository : 사용
+ProfessorService --> EnrollmentRepository : 사용
+ProfessorService --> AuditLogRepository : logging
+AuthService --> StudentAccountRepository : 사용
+AuthService --> ProfessorAccountRepository : 사용
+AuthService --> LoginLogRepository : 사용
+AuthService --> AuditLogRepository : logging
+AdminLogService --> LoginLogRepository : 사용
+
+direction TB
+
+class 학생
+class 교수
+class 강의
+class 수강
+class 인증
+class 관리자로그
+class 감사로그
+
+학생 --> 강의 : 수강
+교수 --> 강의 : 강의
+수강 --> 학생 : 연결
+수강 --> 강의 : 연결
+인증 --> 학생 : 로그인
+인증 --> 교수 : 로그인
+관리자로그 --> 인증 : 로그인기록
+감사로그 --> 학생 : 기록
+감사로그 --> 교수 : 기록

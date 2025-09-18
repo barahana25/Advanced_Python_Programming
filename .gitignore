@@ -1,3 +1,4 @@
 *.db
-*.hwpx
-*.hwp
+syllabus_2025_2.py
+__pycache__/
+*.pyc
