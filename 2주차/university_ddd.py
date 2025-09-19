@@ -209,12 +209,19 @@ class AuthService:
                 params={"user_id": user_id})
         return {"Cookie": Cookie, "role": role}
     
-class StudentService:
+class BaseUserService:
+    def __init__(self, audit_repo, current_actor):
+        self.audit_repo = audit_repo
+        self.current_actor = current_actor
+
+class StudentService(BaseUserService):
     def __init__(self, student_repo,
                  lecture_repo, enrollment_repo,
                  audit_repo, current_actor):
-        self.student_repo = student_repo;self.lecture_repo = lecture_repo; self.enrollment_repo = enrollment_repo
-        self.audit_repo = audit_repo
+        super().__init__(audit_repo, current_actor)
+        self.student_repo = student_repo
+        self.lecture_repo = lecture_repo
+        self.enrollment_repo = enrollment_repo
         self.current_actor = current_actor
 
     def get_profile(self, sno):
@@ -248,13 +255,13 @@ class StudentService:
                params={})
         return details
 
-class ProfessorService:
+class ProfessorService(BaseUserService):
     def __init__(self, professor_repo, student_repo,
                  lecture_repo, enrollment_repo,
                  audit_repo, current_actor):
+        super().__init__(audit_repo, current_actor)
         self.professor_repo=professor_repo; self.student_repo=student_repo; 
-        self.lecture_repo=lecture_repo; self.enrollment_repo=enrollment_repo; self.audit_repo=audit_repo
-        self.current_actor=current_actor
+        self.lecture_repo=lecture_repo; self.enrollment_repo=enrollment_repo
 
     def search_students(self, pno, keyword):
         actor, role = self.current_actor()
