@@ -1,4 +1,4 @@
-<img width="381" height="349" alt="image" src="https://github.com/user-attachments/assets/3bdef934-06b5-4696-ab4c-c241456d1987" /># 대학교 통합정보시스템 추상클래스로 클론 코딩하기
+# 대학교 통합정보시스템 추상클래스로 클론 코딩하기
 
 Streamlit 서버 주소 : http://barahana25.duckdns.org:10081/?waonawklgnwo=abvwnoewinmahwerotknwaoea
 
