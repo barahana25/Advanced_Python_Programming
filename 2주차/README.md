@@ -1,4 +1,4 @@
-# 대학교 통합정보시스템 추상클래스로 클론 코딩하기
+<img width="381" height="349" alt="image" src="https://github.com/user-attachments/assets/3bdef934-06b5-4696-ab4c-c241456d1987" /># 대학교 통합정보시스템 추상클래스로 클론 코딩하기
 
 Streamlit 서버 주소 : http://barahana25.duckdns.org:10081/?waonawklgnwo=abvwnoewinmahwerotknwaoea
 
@@ -36,10 +36,14 @@ dataclasses 모듈에 있는 dataclass 데코레이터를 사용해 DAO(Data Acc
 CRUD 중 Read와 Update에 관련된 함수가 존재합니다. 후술할 Service 클래스에서 이 함수들을 호출하게 됩니다.  
 
 ## 2-3. Service (핵심 로직 구현) 부분
-<img width="400" height="500" alt="image05" src="https://github.com/user-attachments/assets/34129fca-39d5-473f-a35a-fc26aa66ecb6" />  
+<img width="400" height="500" alt="image" src="https://github.com/user-attachments/assets/c100f059-f71d-4a5b-b651-8844a3679704" />  
+
+학생, 교수, 관리자, 교직원의 기능에 대한 추상 클래스입니다.  
+
+<img width="400" height="500" alt="image" src="https://github.com/user-attachments/assets/5b11ee73-8529-4eb7-98f4-a950992d77e4" />  
 
 학생 서비스 - 학생 개인 정보, 개설 강좌, 성적표 조회 기능을 구현했습니다.  
-<img width="400" height="500" alt="image06" src="https://github.com/user-attachments/assets/94725229-71a8-49bf-a454-09f948d5a6c5" />  
+<img width="398" height="500" alt="image" src="https://github.com/user-attachments/assets/e51536ed-ae6c-4785-9def-7197db7052a1" />  
 
 교수 서비스 - 학생 정보, 성적표 조회 기능을 구현했습니다.  
 사용자가 정보를 조회할 때마다 audit 함수를 호출해 접근 로그에 저장합니다.  
