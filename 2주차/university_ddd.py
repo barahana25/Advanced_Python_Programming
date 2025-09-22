@@ -122,9 +122,9 @@ class LectureRepository(ABC):
     @abstractmethod
     def save(self, lec): ...
     @abstractmethod
-    def find_lecture(self, *, year, semester, dept_name): ...
+    def find_lecture(self, year, semester, dept_name): ...
     @abstractmethod
-    def find_by_professor(self, pno, *, year=None, semester=None): ...
+    def find_by_professor(self, pno, year=None, semester=None): ...
 
 class EnrollmentRepository(ABC):
     @abstractmethod
@@ -165,9 +165,9 @@ class AuditLogRepository(ABC):
     @abstractmethod
     def save(self, log): ...
     @abstractmethod
-    def search(self, *, actor_kw: str = "", limit: int = 200): ...
+    def search(self, actor_kw: str = "", limit: int = 200): ...
 
-def _audit(audit_repo, *, actor_id, role,
+def _audit(audit_repo, actor_id, role,
            action, params=None):
     if audit_repo is None:
         print("returning because audit_repo is None")
@@ -234,7 +234,7 @@ class StudentService(BaseUserService):
                 params={})
         return dto
 
-    def search_lecture(self, *, year, semester, dept_name):
+    def search_lecture(self, year, semester, dept_name):
         actor, role = self.current_actor()
         res = self.lecture_repo.find_lecture(year=year, semester=semester, dept_name=dept_name)
         _audit(self.audit_repo, actor_id=actor, role=role, action="student.search_lecture",
@@ -317,10 +317,10 @@ class InMemoryLectureRepo(LectureRepository):
         return self.data.get(lec_no)
     def save(self, lec):
         self.data[lec.lec_no] = lec
-    def find_lecture(self, *, year, semester, dept_name):
+    def find_lecture(self, year, semester, dept_name):
         res = [l for l in self.data.values() if l.year == year and l.semester == semester]
         return [l for l in res if (dept_name is None or l.dept_name == dept_name)]
-    def find_by_professor(self, pno, *, year=None, semester=None):
+    def find_by_professor(self, pno, year=None, semester=None):
         res = [l for l in self.data.values() if l.pno == pno]
         if year is not None:
             res = [l for l in res if l.year == year]
@@ -366,7 +366,7 @@ class InMemoryLoginLogRepo(LoginLogRepository):
 class InMemoryAuditLogRepo(AuditLogRepository):
     def __init__(self): self.rows = []
     def save(self, log): self.rows.append(log)
-    def search(self, *, actor_kw: str = "", limit: int = 200):
+    def search(self, actor_kw: str = "", limit: int = 200):
         ak = actor_kw.lower()
         res = []
         for r in reversed(self.rows):
