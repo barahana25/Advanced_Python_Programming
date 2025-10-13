@@ -133,6 +133,7 @@ def main():
                             st.markdown("**파일 이름**")
                         with h3:
                             st.markdown("**다운로드 버튼**")
+                        course_lec = course_lec.sort_values(by="created_at", ascending=False)
                         for i, row in course_lec.iterrows():
                             col1, col2, col3 = st.columns([2,4,1])
                             with col1:
